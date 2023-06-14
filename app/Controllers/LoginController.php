@@ -21,22 +21,18 @@ class LoginController extends BaseController
 
         $user = $userModel->where('email', $email)->first();
 
-        var_dump($user);
+		if(empty($user)) return view('login', ['error' => 'Email atau kata sandi salah']);
+		if(!password_verify($password ?? '', $user['password'])) return view('login', ['error' => 'Email atau kata sandi salah']);
 
-        if ($user && $user['password'] == $password) {
-            // Jika kredensial benar, simpan informasi pengguna ke dalam sesi
-            $session = session();
-            $session->set([
-                'email' => $user['email'],
-                'logged_in' => true
-            ]);
+		
+		$session = session();
+		$session->set([
+			'id' => $user['id'],
+			'email' => $user['email'],
+			'logged_in' => true
+		]);
 
-            // Redirect ke halaman dashboard atau halaman yang sesuai setelah login berhasil
-            return redirect()->to('/dashboard');
-        } else {
-            // Jika kredensial salah, tampilkan pesan error di halaman login
-            $data['error'] = 'Email atau kata sandi salah';
-            return view('login', $data);
-        }
+		// Redirect ke halaman dashboard atau halaman yang sesuai setelah login berhasil
+		return redirect()->to(base_url('dashboard'));
     }
 }

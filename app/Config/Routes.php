@@ -58,11 +58,17 @@ $routes->post('/register', 'RegisterController::store');
 $routes->get('/login', 'LoginController::index');
 $routes->post('/login', 'LoginController::login');
 
-// dashboard
-$routes->get('/dashboard', 'DashboardController::index');
-$routes->get('/dashboard/admin', 'DashboardController::admin');
-$routes->get('/dashboard/anggota', 'DashboardController::anggota');
-$routes->get('/dashboard/buku', 'DashboardController::buku');
-$routes->get('/dashboard/kategori', 'DashboardController::kategori');
-$routes->get('/dashboard/peminjaman', 'DashboardController::peminjaman');
-$routes->get('/dashboard/pengembalian', 'DashboardController::pengembalian');
+$routes->group('', ['filter' => 'auth'], function ($routes) {
+	// logout
+	$routes->get('/logout', 'LogoutController::logout');
+
+	// dashboard
+	$routes->get('/dashboard', 'DashboardController::index');
+	$routes->get('/dashboard/admin', 'DashboardController::admin');
+	$routes->get('/dashboard/anggota', 'DashboardController::anggota');
+	$routes->get('/dashboard/buku', 'DashboardController::buku');
+	$routes->get('/dashboard/kategori', 'DashboardController::kategori');
+	$routes->get('/dashboard/peminjaman', 'DashboardController::peminjaman');
+	$routes->get('/dashboard/pengembalian', 'DashboardController::pengembalian');
+
+});

@@ -16,12 +16,12 @@
       <h2>login</h2>
       <form action="/login" method="post">
         <div>
-          <label name="username">username</label>
+          <label name="email">email</label>
           <input
             class="form-control"
             type="text"
-            name="username"
-            id="username"
+            name="email"
+            id="email"
           />
         </div>
         <div>
@@ -37,6 +37,7 @@
           <button class="btn btn-primary mt-3" type="submit">login</button>
         </div>
       </form>
+	  <p class="text-danger"><?= $error ?? '' ?></p>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"

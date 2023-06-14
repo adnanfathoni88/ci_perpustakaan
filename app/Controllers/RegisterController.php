@@ -23,8 +23,10 @@ class RegisterController extends BaseController
             'password' => $password
         ];
 
+		if(!isset($data['password'])) return redirect()->to(base_url('/register'));
+
         $model = new UserModel();
-        $model = $model->insert($data);
+        $model = $model->insert(array_merge($data, [ 'password' => password_hash($data['password'] ?? '', PASSWORD_BCRYPT) ]));
 
         return view('login');
     }
