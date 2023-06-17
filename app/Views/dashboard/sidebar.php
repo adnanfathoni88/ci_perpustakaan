@@ -7,7 +7,7 @@
         <li><a href="/dashboard/kategori" class="<?= isset($_SERVER['navAktif']) && $_SERVER['navAktif'] == 'kategori' ? 'bg-dark' : '' ?>">Kategori</a></li>
         <li><a href="/dashboard/peminjaman" class="<?= isset($_SERVER['navAktif']) && $_SERVER['navAktif'] == 'peminjaman' ? 'bg-dark' : '' ?>">Peminjaman</a></li>
         <li><a href="/dashboard/pengembalian" class="<?= isset($_SERVER['navAktif']) && $_SERVER['navAktif'] == 'pengembalian' ? 'bg-dark' : '' ?>">Pengembalian</a></li>
-        <li><a href="/logout">Logout</a></li>
+        <li><a href="/logout" onclick="return confirm('Anda Ingin Logout?')" >Logout</a></li>
     </ul>
 </div>
 
