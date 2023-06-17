@@ -4,9 +4,9 @@
         <li><a href="/dashboard/admin" class="<?= isset($_SERVER['navAktif']) && $_SERVER['navAktif'] == 'admin' ? 'bg-dark' : '' ?>">Admin</a></li>
         <li><a href="/dashboard/anggota" class=<?= isset($_SERVER['navAktif']) &&  $_SERVER['navAktif'] == 'anggota' ? 'bg-dark' : '' ?>>Anggota</a></li>
         <li><a href="/dashboard/buku" class="<?= isset($_SERVER['navAktif']) && $_SERVER['navAktif'] == 'buku' ? 'bg-dark' : '' ?>">Buku</a></li>
-        <li><a href="/dashboard/kategori" class="<?= isset($_SERVER['navAktif']) && $_SERVER == 'kategori' ? 'bg-dark' : '' ?>">Kategori</a></li>
-        <li><a href="/dashboard/peminjaman" class="<?= isset($_SERVER['navAktif']) && $_SERVER == 'peminjaman' ? 'bg-dark' : '' ?>">Peminjaman</a></li>
-        <li><a href="/dashboard/pengembalian" class="<?= isset($_SERVER['navAktif']) && $_SERVER == 'pengembalian' ? 'bg-dark' : '' ?>">Pengembalian</a></li>
+        <li><a href="/dashboard/kategori" class="<?= isset($_SERVER['navAktif']) && $_SERVER['navAktif'] == 'kategori' ? 'bg-dark' : '' ?>">Kategori</a></li>
+        <li><a href="/dashboard/peminjaman" class="<?= isset($_SERVER['navAktif']) && $_SERVER['navAktif'] == 'peminjaman' ? 'bg-dark' : '' ?>">Peminjaman</a></li>
+        <li><a href="/dashboard/pengembalian" class="<?= isset($_SERVER['navAktif']) && $_SERVER['navAktif'] == 'pengembalian' ? 'bg-dark' : '' ?>">Pengembalian</a></li>
         <li><a href="/logout">Logout</a></li>
     </ul>
 </div>
