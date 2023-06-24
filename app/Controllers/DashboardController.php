@@ -23,11 +23,11 @@ class DashboardController extends BaseController
         $_SERVER['navAktif'] = 'anggota';
         return view('dashboard/anggota/index');
     }
-    function buku()
-    {
-        $_SERVER['navAktif'] = 'buku';
-        return view('dashboard/buku/index');
-    }
+    // function buku()
+    // {
+    //     $_SERVER['navAktif'] = 'buku';
+    //     return view('dashboard/buku/index');
+    // }
 
     function kategori()
     {

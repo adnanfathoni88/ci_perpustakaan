@@ -66,9 +66,13 @@ $routes->group('', ['filter' => 'auth'], function ($routes) {
 	$routes->get('/dashboard', 'DashboardController::index');
 	$routes->get('/dashboard/admin', 'DashboardController::admin');
 	$routes->get('/dashboard/anggota', 'DashboardController::anggota');
-	$routes->get('/dashboard/buku', 'DashboardController::buku');
 	$routes->get('/dashboard/kategori', 'DashboardController::kategori');
 	$routes->get('/dashboard/peminjaman', 'DashboardController::peminjaman');
 	$routes->get('/dashboard/pengembalian', 'DashboardController::pengembalian');
-
+	
+	// buku
+	$routes->get('/dashboard/buku', 'BukuController::index');
+	$routes->get('/add-buku', 'BukuController::create');
+	$routes->post('/add-buku', 'BukuController::store');
+	$routes->get('/edit-buku/(:segment)', 'BukuController::edit/$id');
 });
