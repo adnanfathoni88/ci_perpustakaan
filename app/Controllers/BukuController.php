@@ -23,6 +23,20 @@ class BukuController extends BaseController
     }
     public function store()
     {
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'judul' => 'required',
+            'pengarang' => 'required',
+            'penerbit' => 'required',
+            'tahun_terbit' => 'required|numeric',
+            'jumlah_halaman' => 'required|numeric',
+            'sinopsis' => 'required'
+        ]);
+    
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+
         $buku = new Buku();
         $data = [
             'judul' => $this->request->getVar('judul'),
@@ -44,6 +58,5 @@ class BukuController extends BaseController
         $data['buku'] = $buku->find($id); 
 
         return view('dashboard/buku/edit-buku', $data);
-
     }
 }
